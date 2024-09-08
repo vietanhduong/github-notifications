@@ -1,2 +1,2 @@
 # github-notifications
-GitHub Personal Notifications 
+GitHub Personal Notifications
