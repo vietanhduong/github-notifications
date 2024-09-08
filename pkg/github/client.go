@@ -50,9 +50,14 @@ func (c *Client) FetchNotifications(ctx context.Context, opt FetchNotificationsO
 			Id:         n.GetID(),
 			Reason:     n.GetReason(),
 			Repository: n.GetRepository().GetFullName(),
-			Subject:    n.GetSubject().GetTitle(),
-			Unread:     n.GetUnread(),
-			UpdatedAt:  n.GetUpdatedAt().Time,
+			Subject: &NotificationSubject{
+				Title:            n.GetSubject().GetTitle(),
+				URL:              n.GetSubject().GetURL(),
+				LatestCommentURL: n.GetSubject().GetLatestCommentURL(),
+				Type:             n.GetSubject().GetType(),
+			},
+			Unread:    n.GetUnread(),
+			UpdatedAt: n.GetUpdatedAt().Time,
 		}
 	}), nil
 }

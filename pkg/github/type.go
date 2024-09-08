@@ -10,7 +10,14 @@ type Notification struct {
 	Id         string
 	Reason     string
 	Repository string
-	Subject    string
+	Subject    *NotificationSubject
 	Unread     bool
 	UpdatedAt  time.Time
+}
+
+type NotificationSubject struct {
+	Title            string
+	URL              string
+	LatestCommentURL string
+	Type             string
 }
